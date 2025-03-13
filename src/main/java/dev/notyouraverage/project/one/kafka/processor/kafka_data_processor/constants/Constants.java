@@ -12,5 +12,6 @@ public class Constants {
     public static final String LISTENER_REQEUST_MESSAGES = "listenerRequestMessages";
 
     public static final String JSON_SERIALIZABLE_CONCURRENT_LISTENER_CONTAINER_FACTORY = "jsonSerializerConcurrentListenerContainerFactory";
+
     public static final String JSON_SERIALIZABLE_CONSUMER_FACTORY = "jsonSerializerConsumerFactory";
 }

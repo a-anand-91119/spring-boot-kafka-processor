@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 public class IncomingRequestListener {
 
     private final KafkaTemplate<String, JsonSerializable> kafkaTemplate;
+
     private final String responseTopic;
 
     public IncomingRequestListener(
@@ -30,11 +31,19 @@ public class IncomingRequestListener {
     }
 
     @KafkaListener(id = Constants.LISTENER_REQEUST_MESSAGES, topics = "${project.kafka.requestTopic.name}", containerFactory = Constants.JSON_SERIALIZABLE_CONCURRENT_LISTENER_CONTAINER_FACTORY)
-    public void onMessage(@Payload ProcessRequestPayload requestPayload,
-                          @Header(name = KafkaHeaders.RECEIVED_KEY, required = false) String key,
-                          @Header(KafkaHeaders.RECEIVED_PARTITION) int partition) {
+    public void onMessage(
+            @Payload ProcessRequestPayload requestPayload,
+            @Header(name = KafkaHeaders.RECEIVED_KEY, required = false) String key,
+            @Header(KafkaHeaders.RECEIVED_PARTITION) int partition
+    ) {
         log.info("Received(key={}, partition={}): {}", key, partition, requestPayload);
-        kafkaTemplate.send(responseTopic, ProcessedResponsePayload.builder()
-                .requestId(requestPayload.getRequestId()).name(requestPayload.getName().toUpperCase()).count(1L).build());
+        kafkaTemplate.send(
+                responseTopic,
+                ProcessedResponsePayload.builder()
+                        .requestId(requestPayload.getRequestId())
+                        .name(requestPayload.getName().toUpperCase())
+                        .count(1L)
+                        .build()
+        );
     }
 }

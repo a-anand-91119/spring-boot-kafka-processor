@@ -58,7 +58,9 @@ public class KafkaConfiguration {
     }
 
     @Bean(Constants.JSON_SERIALIZABLE_CONCURRENT_LISTENER_CONTAINER_FACTORY)
-    public ConcurrentKafkaListenerContainerFactory<String, JsonSerializable> listenerFactory(@Qualifier(Constants.JSON_SERIALIZABLE_CONSUMER_FACTORY) ConsumerFactory<String, JsonSerializable> consumerFactory) {
+    public ConcurrentKafkaListenerContainerFactory<String, JsonSerializable> listenerFactory(
+            @Qualifier(Constants.JSON_SERIALIZABLE_CONSUMER_FACTORY) ConsumerFactory<String, JsonSerializable> consumerFactory
+    ) {
         ConcurrentKafkaListenerContainerFactory<String, JsonSerializable> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.getContainerProperties().setObservationEnabled(true);
         factory.setConsumerFactory(consumerFactory);
