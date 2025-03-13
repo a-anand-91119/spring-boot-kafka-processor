@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: kafka-data-processor
+  docker:
+    compose:
+      enabled: false
+      file: ./dependencies/kafka-data-processor/compose.yaml
+  kafka:
+    bootstrap-servers: localhost:9094
+
+management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0
+  otlp:
+    tracing:
+      endpoint: http://localhost:4318/v1/traces
+
+project:
+  ui-app:
+    hosts: "*"
+  kafka:
+    requestTopic:
+      name: IncomingRequests
+      partitions: 8
+      replicas: 1
+    responseTopic:
+      name: ProcessedResponses
+      partitions: 8
+      replicas: 1

@@ -1,7 +1,8 @@
 plugins {
 	java
-	id("org.springframework.boot") version "3.4.3"
-	id("io.spring.dependency-management") version "1.1.7"
+	alias(libs.plugins.springframework.boot)
+	alias(libs.plugins.spring.dependency.management)
+	alias(libs.plugins.spotless)
 }
 
 group = "dev.notyouraverage.project.one.kafka.processor"
@@ -24,17 +25,33 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.kafka:spring-kafka")
-	compileOnly("org.projectlombok:lombok")
-	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
-	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("org.springframework.kafka:spring-kafka-test")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation(libs.spring.boot.actuator)
+	implementation(libs.spring.boot.web)
+	implementation(libs.spring.kafka)
+	implementation(libs.springdoc.webmvc.ui)
+
+	implementation(libs.opentelemetry.exporter.otlp)
+	implementation(libs.micrometer.tracing.bridge.otel)
+
+	compileOnly(libs.lombok)
+	developmentOnly(libs.spring.boot.compose)
+	developmentOnly(libs.spring.boot.devtools)
+	annotationProcessor(libs.lombok)
+
+	testImplementation(libs.spring.boot.test)
+	testImplementation(libs.spring.kafka.test)
+	testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+spotless {
+	java {
+		removeUnusedImports()
+		eclipse("4.29").configFile("spotless.xml")
+		trimTrailingWhitespace()
+		endWithNewline()
+	}
 }
