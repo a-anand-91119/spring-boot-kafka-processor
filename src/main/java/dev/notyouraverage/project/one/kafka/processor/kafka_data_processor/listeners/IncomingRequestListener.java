@@ -1,9 +1,9 @@
 package dev.notyouraverage.project.one.kafka.processor.kafka_data_processor.listeners;
 
+import dev.notyouraverage.project.core.JsonSerializable;
 import dev.notyouraverage.project.core.dto.kafka.ProcessedResponsePayload;
 import dev.notyouraverage.project.one.kafka.processor.kafka_data_processor.constants.Constants;
 import dev.notyouraverage.project.core.dto.kafka.ProcessRequestPayload;
-import dev.notyouraverage.project.core.dto.kafka.JsonSerializable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
