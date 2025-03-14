@@ -1,7 +1,7 @@
 package dev.notyouraverage.project.one.kafka.processor.kafka_data_processor.configurations;
 
+import dev.notyouraverage.project.core.JsonSerializable;
 import dev.notyouraverage.project.one.kafka.processor.kafka_data_processor.constants.Constants;
-import dev.notyouraverage.project.one.kafka.processor.kafka_data_processor.core.JsonSerializable;
 import dev.notyouraverage.project.one.kafka.processor.kafka_data_processor.utils.KafkaConfigurationUtils;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.producer.ProducerConfig;

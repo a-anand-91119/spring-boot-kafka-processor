@@ -1,6 +1,6 @@
-package dev.notyouraverage.project.dtos.kafka;
+package dev.notyouraverage.project.core.dto.kafka;
 
-import dev.notyouraverage.project.one.kafka.processor.kafka_data_processor.core.JsonSerializable;
+import dev.notyouraverage.project.core.JsonSerializable;
 import lombok.*;
 
 @Data
