@@ -9,7 +9,11 @@ spring:
       file: ./dependencies/kafka-data-processor/compose.yaml
   kafka:
     bootstrap-servers: localhost:9094
-
+  grpc:
+    client:
+      channels:
+        name-service:
+          address: localhost:9092
 management:
   tracing:
     enabled: true

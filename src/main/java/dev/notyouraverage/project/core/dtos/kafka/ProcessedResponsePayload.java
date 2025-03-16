@@ -1,4 +1,4 @@
-package dev.notyouraverage.project.core.dto.kafka;
+package dev.notyouraverage.project.core.dtos.kafka;
 
 import dev.notyouraverage.project.core.JsonSerializable;
 import lombok.AllArgsConstructor;
@@ -15,5 +15,5 @@ public class ProcessedResponsePayload implements JsonSerializable {
 
     private String name;
 
-    private Long count;
+    private Integer count;
 }
