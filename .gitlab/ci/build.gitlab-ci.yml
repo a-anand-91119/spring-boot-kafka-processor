@@ -12,14 +12,14 @@ spotless-formatting-check:
   interruptible: true
 
 unit-test:
-  image: gradle:8.12.1-jdk23-alpine
+  image: gradle:8.12.1-jdk23
   stage: prerequisites
   script:
     - ./gradlew --no-daemon test
   interruptible: true
 
 compile-and-build-jar:
-  image: gradle:8.12.1-jdk23-alpine
+  image: gradle:8.12.1-jdk23
   stage: build
   script:
     - ./gradlew --no-daemon clean build -x spotlessCheck test
