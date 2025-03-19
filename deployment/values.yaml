@@ -33,7 +33,7 @@ sealedSecrets:
 
 environmentVariables:
   - name: GRPC_NAME_SERVICE_ENDPOINT
-    value: grpc-stats-aggregator-service.spring-projects.svc.cluster.local:8080
+    value: grpc-stats-aggregator.spring-projects.svc.cluster.local:8080
   - name: KAFKA_BOOTSTRAP_SERVERS
     value: apache-kafka.kafka.svc.cluster.local:9092
   - name: ENABLE_VIRTUAL_THREADS
