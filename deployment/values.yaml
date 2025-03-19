@@ -32,6 +32,8 @@ sealedSecrets:
     KAFKA_AUTH_USERNAME: AgCEupFC2Bl6EQ8jzE4FIRqkuA+tdb7FcfXErSYwi8zUFvZFJDuhyfX7unFiyClDtC16K6H7rLCG8FAQWsXWYul20wTH9PE7Sd2OSzDn1fXsco7hcOMNyKhzFcjqfaEVvxN/6HINSg5Ae5JfrNZL+xkPFUe0K3E3A47sfZ+vODssJW9lV5cGty09Hxxfw0gWlvbqKKuBxB2lPmwZWhNUD51p2y0E4cBSdeOgEjs1OFvpn8s3IB9r+jcax8MNzQbkSoU770OsWtyQoFM6447NxB722pYDVH/zq/knIQvEAOYnqGpbIR5lz+e3Rj35LnK3+uDA2FE0XjSk6WH3/cGU+p0tRtI0Bt44UD3YHRJfvTwpx8IuewfmaS6uDILS/5nPx+7DpxwnErQs2SLzZl4wjN/hv+K0jLIpJaRFzyB3/rmisHQY+cGeVgorVAfjJ0N994H6lvwaNfI2qPLRwMdznWEPetODGOu2595gk46H61igBmRx9rYaQKu75FxM66vDz9wKqV+rxh6HhE2tnDD5eREP1s0TeD9acOTdaqDWekEXHtQ2qRDmbM8zNY4JtA507IPIkDvl+yhOjD7tvBPO5I5CsIbBLZBmzTfn82f9Ob3O0FeeMIncD8oAO0leVayf83GM5Id7nA2NhIgXTy5M+MmJIlWmo693Mm/+FvSD71BXMEf033ESqjwOeGHXMKFdfFY/7/CYEfGoTYih
 
 environmentVariables:
+  - name: GRPC_NAME_SERVICE_ENDPOINT
+    value: grpc-stats-aggregator-service.spring-projects.svc.cluster.local:8080
   - name: KAFKA_BOOTSTRAP_SERVERS
     value: apache-kafka.kafka.svc.cluster.local:9092
   - name: ENABLE_VIRTUAL_THREADS

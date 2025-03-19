@@ -13,7 +13,7 @@ spring:
     client:
       channels:
         name-service:
-          address: localhost:9092
+          address: ${GRPC_NAME_SERVICE_ENDPOINT:localhost:9092}
   threads:
     virtual:
       enabled: ${ENABLE_VIRTUAL_THREADS:true}
