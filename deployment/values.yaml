@@ -37,14 +37,14 @@ autoscaling:
   type: "keda"
   keda:
     enabled: true
-    maxReplicas: 5
+    maxReplicas: 16
     scalers:
       - type: "kafka"
         metadata:
           bootstrapServers: "apache-kafka.kafka.svc.cluster.local:9092"
           consumerGroup: "IncomingRequestListener"
           topic: "IncomingRequests"
-          lagThreshold: "50"
+          lagThreshold: "200"
         triggerAuth:
           secretTargetRef:
             - parameter: sasl
