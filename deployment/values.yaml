@@ -57,6 +57,12 @@ autoscaling:
               name: *sealed-secret-name
               key: KAFKA_AUTH_USERNAME
 
+monitoring:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    namespace: "observability"
+
 environmentVariables:
   - name: GRPC_NAME_SERVICE_ENDPOINT
     value: grpc-stats-aggregator.spring-projects.svc.cluster.local:8080
