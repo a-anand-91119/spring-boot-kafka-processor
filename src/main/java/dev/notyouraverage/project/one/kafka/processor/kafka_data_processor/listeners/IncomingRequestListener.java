@@ -35,7 +35,7 @@ public class IncomingRequestListener {
         this.nameServiceClient = nameServiceClient;
     }
 
-    @KafkaListener(id = Constants.LISTENER_REQEUST_MESSAGES, topics = "${project.kafka.requestTopic.name}", containerFactory = Constants.JSON_SERIALIZABLE_CONCURRENT_LISTENER_CONTAINER_FACTORY)
+    @KafkaListener(id = Constants.LISTENER_REQEUST_MESSAGES, groupId = "IncomingRequestListener", topics = "${project.kafka.requestTopic.name}", containerFactory = Constants.JSON_SERIALIZABLE_CONCURRENT_LISTENER_CONTAINER_FACTORY)
     public void onMessage(
             @Payload ProcessRequestPayload requestPayload,
             @Header(name = KafkaHeaders.RECEIVED_KEY, required = false) String key,
