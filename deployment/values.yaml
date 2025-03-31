@@ -61,7 +61,7 @@ monitoring:
   enabled: true
   serviceMonitor:
     enabled: true
-    namespace: "observability"
+    namespace: "monitoring"
 
 environmentVariables:
   - name: GRPC_NAME_SERVICE_ENDPOINT
